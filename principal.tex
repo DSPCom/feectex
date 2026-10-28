@@ -11,7 +11,7 @@
 %    french,
 %    spanish,
     brazil
-]{feectex}
+]{feectex2}
 
 % Pacotes adicionais (adicione ou remova conforme sua
 % necessidade). Visite o site https://www.ctan.org para
@@ -22,6 +22,17 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{pdfpages}
+\usepackage{cleveref}
+\usepackage{microtype}
+% \usepackage[capitalize, nameinlink,brazilian]{cleveref} % Versão em brasileiro
+\hypersetup{
+    colorlinks=true,      % Habilita a coloração dos links
+    linkcolor=black,      % Cor dos links internos (capítulos, seções, etc.)
+    citecolor=black,      % Cor das referências bibliográficas (citações)
+    filecolor=black,      % Cor dos links para arquivos locais
+    urlcolor=black,       % Cor dos links para URLs externas (internet)
+    pdfborder={0 0 0}    % Remove a borda (caixa) colorida
+}
 
 % Diretório onde se encontram as imagens utilizadas no trabalho.
 % O comando pode ser modificado para incluir diversos diretórios:
@@ -54,6 +65,9 @@
 % \coorientadora{Profa. Dra. Nome da Coorientadora}
 \coorientador{Prof. Dr. Nome do Coorientador}
 
+% É a versão final?
+\versaofinal
+
 % Qual é o nome da universidade de cotutela? Se houver,
 % modificar a opção na declaração da classe acima
 % (\documentclass(...)) e remover comentário abaixo.
@@ -80,15 +94,26 @@
 \areaconcentracao{Engenharia de Computação}
 
 % Quais são os títulos e os nomes dos componentes da banca
-% examinadora? (Por enquanto, é necessário repetir o título
-% e o nome da orientadora ou orientador aqui.)
+% examinadora? (Não informe titulação, designação ou afiliação
+% dos membros)
 \bancaexaminadora{%
-    Prof. Dr. Nome do Orientador (Presidente) \\%
-    Prof. Dr. Nome do Primeiro Membro \\%
-    Prof. Dr. Nome do Segundo Membro
-    % Prof. Dr. Nome do Terceiro Membro \\%
-    % Prof. Dr. Nome do Quarto Membro
+    Nome do Orientador\\%
+    Nome do Primeiro Membro \\%
+    Nome do Segundo Membro
+    % Nome do Terceiro Membro \\%
+    % Nome do Quarto Membro
 }
+
+% Para quais atividades foram utilizados recursos de IA Generativa?
+\usogramatica       % Ativa a caixa de revisão gramatical
+\usoestatistica     % Ativa a caixa de procedimentos estatísticos
+\usocodigo          % Ativa a caixa de código de programação
+\usooutros{Geração de diagramas e ilustrações auxiliares} % Deixe em branco se não houver
+
+% Adicione quantas ferramentas forem necessárias:
+% Repeitando a sequência {Nome da Ferramenta}{Versão}{usos da ferramenta}
+\adicionarferramentaIA{ChatGPT}{GPT-4o}{revisão do abstract em inglês e formatação de tabelas}
+\adicionarferramentaIA{GitHub Copilot}{1.5.0}{otimização e autocompletar rotinas em Python}
 
 \begin{document}
     % \hyphenation{}
@@ -110,20 +135,21 @@
 
     % Elementos textuais.
     \textual
-    \part{Primeira Parte}
+    \part{Primeira Parte} % Opcional
     \incluir{capitulos/capitulo-1}
 
     % Elementos pós-textuais.
     \postextual
-    \bibliography{bibliografia}
-%    \imprimirbibliografia{bibliografia}
+    \imprimirbibliografia{bibliografia}
 
+    \settocdepth{chapter}
     \apendices
     \partapendices
     \incluir{apendices/apendice-A}
 
     \anexos
     \partanexos
-    \incluir{anexos/anexo-A}
+    \imprimirdeclaracaoia
+    \incluir{anexos/anexo-B}
 
 \end{document}

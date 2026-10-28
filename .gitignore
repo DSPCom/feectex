@@ -17,7 +17,6 @@
 *.nls
 *.pdf
 !unicamp-logotipo.pdf
-
 *.dvi
 *.xdv
 
